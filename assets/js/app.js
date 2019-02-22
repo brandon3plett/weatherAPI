@@ -30,7 +30,11 @@ $(document).ready(() => {
                     let currentTempUnit = tempUnit.text()
                     let newTempUnit = currentTempUnit == " F" ? " C" : " F"
                     tempUnit.text(newTempUnit)
-                    newTempUnit == " C" ? mainTemp.text(convertToC(Math.round(data.main.temp)) + String.fromCharCode(176)) : mainTemp.text(Math.round(data.main.temp) + String.fromCharCode(176))
+                    if (newTempUnit == " C") {
+                        mainTemp.text(convertToC(Math.round(data.main.temp)) + String.fromCharCode(176))
+                    } else {
+                        mainTemp.text(Math.round(data.main.temp) + String.fromCharCode(176))
+                    }
                 })
                 $("#condition").text(data.weather[0].main)
             })
