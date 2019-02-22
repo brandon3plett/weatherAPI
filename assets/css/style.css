@@ -1,0 +1,16 @@
+html {
+    background: #000;
+    font-family: 'Fredericka the Great', cursive;
+}
+
+body {
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+}
+
+.weather-display {
+    text-align: center;
+}
