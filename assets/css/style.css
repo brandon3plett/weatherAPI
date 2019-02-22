@@ -9,8 +9,14 @@ body {
 
 h1 {
     text-align: center;
+    margin-top: 75px;
+    margin-bottom: 50px;
 }
 
 .weather-display {
     text-align: center;
+}
+
+#temp-unit {
+    cursor: pointer;
 }

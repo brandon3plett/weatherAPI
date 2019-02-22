@@ -7,6 +7,10 @@ const convertToF = (temp) => Math.round((temp * 1.8) + 32)
 const apiKey = config.apiKey
 
 $(document).ready(() => {
+    let mainTemp = $("#temp")
+    let tempUnit = $("#temp-unit")
+    let defaultUnit = " F"
+
     testGeo = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude
@@ -20,14 +24,18 @@ $(document).ready(() => {
                 console.log(data)
                 $("#city").text(data.name + ", ")
                 $("#country").text(data.sys.country)
-                $("#temp").text(Math.round(data.main.temp) + String.fromCharCode(176))
-                //$("#temp-scale").text(convertToC(data.main.temp))
-                $("#temp-scale").text(" F")
+                mainTemp.text(Math.round(data.main.temp) + String.fromCharCode(176))
+                tempUnit.text(defaultUnit)
+                tempUnit.click(() => {
+                    let currentTempUnit = tempUnit.text()
+                    let newTempUnit = currentTempUnit == " F" ? " C" : " F"
+                    tempUnit.text(newTempUnit)
+                    newTempUnit == " C" ? mainTemp.text(convertToC(Math.round(data.main.temp)) + String.fromCharCode(176)) : mainTemp.text(Math.round(data.main.temp) + String.fromCharCode(176))
+                })
                 $("#condition").text(data.weather[0].main)
             })
         })
     }
-
 
     testGeo()
 })
