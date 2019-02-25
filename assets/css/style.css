@@ -17,6 +17,15 @@ h1 {
     text-align: center;
 }
 
+.location {
+    font-size: 24px;
+}
+
+.temp,
+#condition {
+    font-size: 22px;
+}
+
 #temp-unit {
     cursor: pointer;
 }
