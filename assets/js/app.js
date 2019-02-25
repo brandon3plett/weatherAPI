@@ -12,7 +12,7 @@ $(document).ready(() => {
     let defaultUnit = "F"
     let src = "http://openweathermap.org/img/w/"
 
-    testGeo = () => {
+    currentWeather = (() => {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude
             let lon = position.coords.longitude
@@ -39,10 +39,8 @@ $(document).ready(() => {
                 })
                 $("#condition").text(data.weather[0].main)
                 $("#icon").attr("src", src + data.weather[0].icon + ".png")
-                
+
             })
         })
-    }
-
-    testGeo()
+    })()
 })

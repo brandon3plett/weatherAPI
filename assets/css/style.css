@@ -1,10 +1,10 @@
 html {
-    background: #000;
+    background: rgb(0, 0, 0);
     font-family: 'Fredericka the Great', cursive;
 }
 
 body {
-    color: #fff;
+    color: rgb(255, 255, 255)
 }
 
 h1 {
@@ -28,5 +28,5 @@ h1 {
 
 #temp-unit {
     cursor: pointer;
-    color: lightblue;
+    color: rgb(173, 216, 230);
 }
