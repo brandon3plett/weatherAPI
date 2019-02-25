@@ -9,4 +9,6 @@ JavaScript/jQuery
 
 For the API, I used https://openweathermap.org
 
+The current temperature unit is fahrenheit.  To switch to celsius, just click on the unit displayed.
+
 I will try to update this with the ability to display a 5 day weather forecast for the current location.
