@@ -4,6 +4,7 @@ const convertToC = (temp) => Math.round((temp - 32) / 1.8)
 //Function to convert celsius to fahrenheit
 const convertToF = (temp) => Math.round((temp * 1.8) + 32)
 
+const config = require("./config.js")
 const apiKey = config.apiKey
 
 $(document).ready(() => {
