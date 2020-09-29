@@ -3,8 +3,8 @@
 }
 
 body {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    background-color: #c0c0c0;
+    color: #000;
 }
 
 h1 {
@@ -12,7 +12,14 @@ h1 {
     margin-top: 5rem;
     margin-bottom: 3rem;
     letter-spacing: 3px;
+    text-transform: uppercase;
 }
+
+.description {
+    display: block;
+    text-align: center;
+}
+
 
 .weather-display {
     text-align: center;
@@ -30,4 +37,29 @@ h1 {
 #temp-unit {
     cursor: pointer;
     color: rgb(173, 216, 230);
+}
+
+.section-forecast {
+    display: flex;
+    justify-content: space-around;
+}
+
+.overview {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border: solid 3px #000;
+    text-align: center;
+}
+
+.overview span {
+    display: block;
+}
+
+#maxTemp {
+    font-weight: 600;
+}
+
+#minTemp {
+    font-weight: 500;
 }

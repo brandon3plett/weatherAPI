@@ -12,13 +12,29 @@
 </head>
 
 <body>
-    <h1>SHOW ME MY WEATHER</h1>
-    <div class="weather-display">
-        <p class="location"><span id="city"></span><span id="country"></span></p>
-        <p class="temp"><span id="temp"></span><span id="temp-unit"></span></p>
-        <p><span id="condition"></span></p>
-        <img id="icon" />
-    </div>
+    <main>
+        <section>
+            <h1>Weather API</h1>
+            <span class="description">Below you will find both the current weather status of your location along with a 5 day forecast.</span>
+        </section>
+        <section class="section-current">
+            <div class="weather-display">
+                <!-- <p class="location"><span id="city"></span><span id="country"></span></p> -->
+                <span class="current-day" id="currentDay"></span>
+                <p class="temp"><span id="temp"></span><span id="temp-unit"></span></p>
+                <p><span id="condition"></span></p>
+                <img id="icon" />
+            </div>
+        </section>
+        <section class="section-forecast">
+            <!--<div class="day-overview">
+                <span class="day"></span>
+                <img id="forecast-icon" />
+                <span class="max" id="max"></span>
+                <span class="min" id="min"></span>
+            </div>-->
+        </section>
+    </main>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assets/js/config.js"></script>
     <script src="assets/js/app.js"></script>
