@@ -1,65 +1,43 @@
 * {
-    font-family: 'Fredericka the Great', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fredericka the Great", cursive;
 }
 
 body {
-    background-color: #c0c0c0;
-    color: #000;
+    /* background-color: #c0c0c0;
+    color: #000; */
+
+    background-color: #000;
+    color: #c0c0c0;
 }
 
-h1 {
+.section-description {
     text-align: center;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    margin-top: 75px;
+}
+
+.section-description h1 {
+    margin-bottom: 48px;
     letter-spacing: 3px;
     text-transform: uppercase;
 }
 
-.description {
-    display: block;
-    text-align: center;
-}
-
-
-.weather-display {
-    text-align: center;
-}
-
-.location {
-    font-size: 1.5rem;
-}
-
-.temp,
-#condition {
-    font-size: 1.5rem;
-}
-
-#temp-unit {
-    cursor: pointer;
-    color: rgb(173, 216, 230);
-}
-
-.section-forecast {
+.section-current {
+    height: 200px;
     display: flex;
-    justify-content: space-around;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 75px;
+    font-size: 22px;
 }
 
-.overview {
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    border: solid 3px #000;
-    text-align: center;
+.current-day {
+    font-weight: bold;
 }
 
-.overview span {
-    display: block;
-}
-
-#maxTemp {
-    font-weight: 600;
-}
-
-#minTemp {
-    font-weight: 500;
+.temperature-unit {
+    cursor: pointer;
 }

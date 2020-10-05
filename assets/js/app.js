@@ -1,7 +1,7 @@
 // Global variables
 let apiKey = config.apiKey;
 let mainTemp = $("#temp");
-let tempUnit = $("#temp-unit");
+let temperatureUnit = $("#temperatureUnit");
 let defaultUnit = "F";
 let src = "http://openweathermap.org/img/w/";
 
@@ -37,74 +37,53 @@ const getWeather = () => {
             method: "GET",
         }).then((data) => {
             // To get the results, we pass in data as a parameter
-            // console.log(data)
+            //  console.log(data)
             let currentDay = new Date(data.current.dt * 1000);
             $("#currentDay").text(getWeekDay(currentDay));
 
 
-            mainTemp.text(Math.round(data.current.temp) + " " + String.fromCharCode(176));
-            tempUnit.text(defaultUnit)
+            // mainTemp.text(Math.round(data.current.temp) + " " + String.fromCharCode(176));
+            $("#currentTemp").text(Math.round(data.current.temp) + " " + String.fromCharCode(176));
+            temperatureUnit.text(defaultUnit);
             $("#condition").text(data.current.weather[0].main);
-            $("#icon").attr("src", src + data.current.weather[0].icon + ".png");
+            $("#currentIcon").attr("src", src + data.current.weather[0].icon + ".png");
+            $(".current-block").css()
 
             for (let l = 1; l < data.daily.length; l++) {
-                let overview = $("<div>");
+                let forecastOverview = $("<span>");
                 let forecastDay = $("<span>");
                 let forecastIcon = $("<img>");
                 let tempMax = $("<span>");
                 let tempMin = $("<span>");
 
-                overview.addClass("overview");
                 forecastDay.attr("id", "forecastDay");
-                forecastIcon.addClass("forecast-icon");
-                tempMax.attr("id", "maxTemp");
-                tempMin.attr("id", "minTemp");
-
-                console.log(data.daily[l]);
-                // console.log(data.daily[l].weather[0].icon);
-
-                // let forecastDayText = forecastDay.text(new Date(data.daily[l].dt * 1000))[l];
-                // getWeekDay(forecastDayText);
+                forecastIcon.attr("id", "forecastIcon");
+                tempMax.attr("id", "tempMax");
+                tempMin.attr("id", "tempMin");
+                
                 let dayOfWeek = new Date(data.daily[l].dt * 1000);
                 forecastDay.text(getWeekDay(dayOfWeek));
                 forecastIcon.attr("src", src + data.daily[l].weather[0].icon + ".png");
                 tempMax.text(Math.round(data.daily[l].temp.max) + " " + String.fromCharCode(176))[l];
                 tempMin.text(Math.round(data.daily[l].temp.min) + " " + String.fromCharCode(176))[l];
-                overview.append(forecastDay, forecastIcon, tempMax, tempMin);
-                $(".section-forecast").append(overview)[l];
-
-                //$(".forecast-icon").attr("src", src + data.daily[l].weather[0].icon + ".png");
+                forecastOverview.append(forecastDay, forecastIcon, tempMax, tempMin);
+                $(".section-forecast").append(forecastOverview);
             };
 
-            // $(".day").append(getWeekDay(date));
-            // $(".max").append(Math.round(data.daily[0].temp.max) + " " + String.fromCharCode(176))
-            // $(".min").append(Math.round(data.daily[0].temp.min) + " " + String.fromCharCode(176))
-            // $("#forecast-icon").attr("src", src + data.daily[0].weather[0].icon + ".png");
+            // Function that handles switching the displayed unit from fahrenheit to celsius and vice versa
+            
+            // temperatureUnit.click(() => {
+            //     let currentTemperatureUnit = temperatureUnit.text();
+            //     let newTemperatureUnit = currentTemperatureUnit == "F" ? "C" : "F";
 
-            // $("#city").text(data.name + ", ");
-            // $("#country").text(data.sys.country);
-            // mainTemp.text(Math.round(data.main.temp) + " " + String.fromCharCode(176));
-            // tempUnit.text(defaultUnit);
+            //     temperatureUnit.text(newTemperatureUnit);
 
-            // //Click function that handles switching the displayed unit from fahrenheit to celsius and vice versa
-            // tempUnit.click(() => {
-            //     let currentTempUnit = tempUnit.text();
-            //     let newTempUnit = currentTempUnit == "F" ? "C" : "F";
-
-            //     tempUnit.text(newTempUnit);
-
-            //     if (newTempUnit == "C") {
-            //         mainTemp.text(convertToC(Math.round(data.main.temp)) + " " + String.fromCharCode(176));
+            //     if (newTemperatureUnit == "C") {
+            //         temperatureUnit.text(convertToC(Math.round(data.current.temp)) + " " + String.fromCharCode(176));
             //     } else {
-            //         mainTemp.text(Math.round(data.main.temp) + " " + String.fromCharCode(176));
+            //         temperatureUnit.text(Math.round(data.current.temp) + " " + String.fromCharCode(176));
             //     }
             // });
-            // $("#condition").text(data.weather[0].main);
-            // $("#icon").attr("src", src + data.weather[0].icon + ".png");
-
-            // $(".day").append(getWeekDay(date));
-            // $(".main").append(Math.round(data.list[0].main.temp) + " " + String.fromCharCode(176))
-            // $("#forecast-icon").attr("src", src + data.list[0].weather[0].icon + ".png");
         });
     });
 };
